@@ -44,7 +44,8 @@ public class SwaggerConfig {
         selectorBuilder.apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class));
         docket = selectorBuilder.build();
 
-        //因为有的请求是需要登录才能调用，所以需要在swagger里配置登录令牌在哪里；配置完成登录之后就能在swagger里面调用接口
+        //因为登录是基于JWT而不是Session，而有的请求是需要登录才能调用
+        //所以需要在swagger里配置登录令牌在哪里；配置完成后就能在swagger里面输入token令牌调用接口（swagger-ui界面有个Authorize按钮，点击可以设置请求的令牌）
         /**
          * 告知Swagger客户端发起请求时令牌是放在请求头还是请求体，参数名是什么
          * 第一个参数指定参数名，第二个参数是描述性信息，第三个参数是是在哪里提前的令牌(表示在请求头提取参数为token的令牌)
