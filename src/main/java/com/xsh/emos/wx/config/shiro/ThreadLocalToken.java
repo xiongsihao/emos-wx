@@ -12,11 +12,11 @@ public class ThreadLocalToken {
 
     private ThreadLocal<String> local = new ThreadLocal();
 
-    public String getLocal() {
+    public String getToken() {
         return (String)local.get();
     }
 
-    public void setLocal(String token) {
+    public void setToken(String token) {
         local.set(token);
     }
 
